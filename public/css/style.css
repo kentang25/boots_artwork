@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fa;
+  color: #333333;
+  line-height: 1.6;
+}
+
+/* navbar */
+
+/* Efek elegan navbar */
+.elegant-nav .nav-link {
+  position: relative;
+  padding-bottom: 4px;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+/* Garis bawah animasi */
+.elegant-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #ffffff, #9dc5ff);
+  border-radius: 2px;
+  transition: all 0.35s ease;
+  transform: translateX(-50%);
+  opacity: 0.9;
+}
+
+/* Hover efek: warna lebih cerah, bold, garis bawah animasi */
+.elegant-nav .nav-link:hover {
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.5px;
+}
+.elegant-nav .nav-link:hover::after {
+  width: 65%;
+}
+
+/* Efek halus untuk active link */
+.elegant-nav .nav-link.active {
+  font-weight: 600;
+  color: #ffffff;
+}
+.elegant-nav .nav-link.active::after {
+  width: 65%;
+  background: linear-gradient(90deg, #ffffff, #7eb9ff);
+}
+/* end navbar */
+
+/* card header */
+
+.book-card img,a {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .book-card img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    mark {
+        background-color: #ffe58f;
+        padding: 0.2rem 0.4rem;
+        border-radius: 0.25rem;
+    }
+
+/* end card header */
+
+#find_more{
+  background-color: #9dc5ff;
+  padding:3px;
+  border-radius: 2px;
+  color:black;
+  opacity: 0.5;
+  /* font-weight: ; */
+}
+
+#find_more:hover{
+  font-weight: bold;
+  opacity: 2.5;
+  transition: 0.5s;
+}
+
+/* kategori */
+
+.kategori-item {
+        background: linear-gradient(135deg, #4facfe, #00f2fe);
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        border: 0.5px solid black;
+    }
+
+    .kategori-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        background-color: #73C8D2;
+    }
+
+/* end kategori */
+
+/* tombol find more */
+.hover-scale {
+  transition: all 0.2s ease-in-out;
+}
+.hover-scale:hover {
+  transform: scale(1.05);
+  background-color: #e9f2ff !important;
+  color: #0d6efd !important;
+}
+/* end tombol find more */
+
+
+/* about */
+.divider {
+  transition: all 0.3s ease;
+}
+.divider:hover {
+  transform: scaleX(1.2);
+  background: #0d6efd;
+}
+
+.card {
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+/* end about */

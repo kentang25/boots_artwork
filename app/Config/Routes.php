@@ -8,5 +8,10 @@ use CodeIgniter\Router\RouteCollection;
 
 $routes->setAutoRoute(true);
 
-$routes->get('/admin', 'Admin_boots::index');
-$routes->post('/admin/save', 'Admin_boots::save');
+$routes->get('/admin_boots', 'Admin_boots::index');
+$routes->post('/admin_boots/save', 'Admin_boots::save');
+
+$routes->get('/admin_boots/edit/(:any)', 'Admin_boots::edit/$1');
+$routes->post('/admin_boots/update/(:any)', 'Admin_boots::update/$1');
+
+$routes->get('/admin_boots/delete/(:any)', 'Admin_boots::delete/$1');

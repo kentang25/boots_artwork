@@ -14,7 +14,8 @@
         {
             $data = [
                 'title' => 'Admin Boots Artwork',
-                'boots_artwork' => $this->ArtworkModel->getBootsArtwork()
+                'boots_artwork' => $this->ArtworkModel->getBootsArtwork(),
+                'validation' => session()->getFlashdata('validation') ?? \Config\Services::validation()
             ];
 
             return view('admin_boots/v_admin', $data);
@@ -22,10 +23,6 @@
 
         public function save()
         {
-            $fileGambar = $this->request->getFile('gambar');
-            $nameGambar = $fileGambar->getRandomName();
-            $fileGambar->move('img_uploads', $nameGambar);
-
             $rules = [
                 'title' => 'required',
                 'deskripsi' => 'required',
@@ -33,8 +30,12 @@
             ];
 
             if(!$this->validate($rules)){
-                return redirect()->to('/admin')->withInput();
+                return redirect()->to('/admin_boots')->withInput()->with('validation', $this->validator);
             }
+
+            $fileGambar = $this->request->getFile('gambar');
+            $nameGambar = $fileGambar->getRandomName();
+            $fileGambar->move('img_uploads', $nameGambar);
 
             $this->ArtworkModel->save([
                 'title' => $this->request->getPost('title'),
@@ -42,7 +43,43 @@
                 'gambar' => $nameGambar
             ]);
 
-            return redirect()->to('/admin');
+            return redirect()->to('/admin_boots');
+        }
+
+        public function edit($id)
+        {
+            $data = [
+                'title' => 'Edit Boots Artwork',
+                'edit_artwork' => $this->ArtworkModel->getBootsArtwork($id)
+            ];
+
+            return view('admin_boots/v_edit', $data);
+        }
+
+        public function update($id)
+        {
+            $rules = [
+                'title' => 'required',
+                'deskripsi' => 'required'
+            ];
+
+            if(!$this->validate($rules)){
+                return redirect()->to('/admin_boots/edit/' . $id)->withInput()->with('validation', $this->valdatior);
+            }
+
+            $this->ArtworkModel->save([
+                'id' =>$id,
+                'title' => $this->request->getPost('title'),
+                'deskripsi' => $this->request->getPost('deskripsi')
+            ]);
+
+            return redirect()->to('/admin_boots');
+        }
+
+        public function delete($id)
+        {
+            $this->ArtworkModel->delete($id);
+            return redirect()->to('/admin_boots');
         }
     }
 

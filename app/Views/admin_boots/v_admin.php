@@ -23,20 +23,34 @@
                     </thead>
                     <tbody>
                         <?php 
+                            
+                            if(!empty($boots_artwork)) :
                             $no = 1;
                             foreach($boots_artwork as $artwork) :
+                            
                         ?>
                         <tr>
                             <td><?= $no++ ?></td>
                             <td><?= $artwork['title'] ?></td>
                             <td><?= $artwork['deskripsi'] ?></td>
-                            <td><img src="/img_uploads/<?= $artwork['gambar'] ?>" alt="<?= $artwork['title'] ?>" class="img-fluid" style="width:100px; height: 150px;"></td>
+                            <td><img src="/img_uploads/<?= $artwork['gambar'] ?>" alt="<?= $artwork['title'] ?>"
+                                    class="img-fluid" style="width:100px; height: 150px;"></td>
                             <td>
-                                <?= anchor('/admin/edit/' . $artwork['id'], 'Edit', ['class' => 'btn btn-warning btn-sm']) ?>
-                                <?= anchor('/admin/delete/' . $artwork['id'], 'Delete', ['class' => 'btn btn-danger btn-sm', 'data-confirm' => 'Are you sure you want to delete this item?']) ?>
+                                <?= anchor('/admin_boots/edit/' . $artwork['id'], 'Edit', ['class' => 'btn btn-warning btn-sm']) ?>
+                                <?= anchor('/admin_boots/delete/' . $artwork['id'], 'Delete', ['class' => 'btn btn-danger btn-sm', 'data-confirm' => 'Are you sure you want to delete this item?']) ?>
                             </td>
                         </tr>
-                        <?php endforeach; ?>
+                        <?php
+                            endforeach;
+                            else :
+                        ?>
+
+                        <tr>
+                            <td colspan="5">No data available</td>
+                        </tr>
+                        <?php
+                            endif;
+                        ?>
                     </tbody>
                 </table>
                 <!-- Modal -->
@@ -50,26 +64,46 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form method="post" action="/admin/save" enctype="multipart/form-data">
+                                <form method="post" action="/admin_boots/save" enctype="multipart/form-data">
+                                    <?= csrf_field() ?>
+
                                     <div class="mb-3">
-                                        <label for="title" class="form-label">Tittle</label>
-                                        <input type="text" class="form-control" id="title" name="title">
+                                        <label for="title" class="form-label">Title</label>
+                                        <input type="text"
+                                            class="form-control <?= $validation->hasError('title') ? 'is-invalid' : '' ?>"
+                                            id="title" name="title" value="<?= old('title') ?>">
+                                        <div class="invalid-feedback">
+                                            <?= $validation->getError('title') ?>
+                                        </div>
                                     </div>
+
                                     <div class="mb-3">
                                         <label for="deskripsi" class="form-label">Deskripsi</label>
-                                        <textarea class="form-control" id="deskripsi" name="deskripsi" rows="10"
-                                            cols="15"></textarea>
+                                        <textarea
+                                            class="form-control <?= $validation->hasError('deskripsi') ? 'is-invalid' : '' ?>"
+                                            id="deskripsi" name="deskripsi" rows="10"><?= old('deskripsi') ?></textarea>
+                                        <div class="invalid-feedback">
+                                            <?= $validation->getError('deskripsi') ?>
+                                        </div>
                                     </div>
+
                                     <div class="mb-3">
                                         <label for="gambar" class="form-label">Gambar</label>
-                                        <input type="file" class="form-control" id="gambar" name="gambar">
+                                        <input type="file"
+                                            class="form-control <?= $validation->hasError('gambar') ? 'is-invalid' : '' ?>"
+                                            id="gambar" name="gambar">
+                                        <div class="invalid-feedback">
+                                            <?= $validation->getError('gambar') ?>
+                                        </div>
                                     </div>
+
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-secondary"
+                                        <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Close</button>
                                         <button type="submit" class="btn btn-primary">Save changes</button>
                                     </div>
                                 </form>
+
                             </div>
 
                         </div>

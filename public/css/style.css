@@ -61,5 +61,26 @@
       height: 100vh;
     }
 
+    .card:hover 
+    {
+      transform: scale(1.05);
+      filter: brightness(120%);
+    }
+
+    .card:hover img {
+      filter: grayscale(0%) brightness(100%);
+    }
+
+    .bg-symbol {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.15; /* ubah 0.05–0.15 sesuai selera */
+    width: 60%; /* bisa diubah, misalnya 40% kalau mau kecil */
+    z-index: 0;
+    pointer-events: none; /* supaya tidak ganggu klik atau hover */
+  }
+
 
     @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');

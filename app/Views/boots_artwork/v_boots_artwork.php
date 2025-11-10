@@ -17,19 +17,56 @@
             </div>
         </div>
 
+        <!-- <div class="content mt-5">
+            <h1>Boots Artwork</h1>
+            <p>Discover the unique designs and artistic expressions in our boots collection.</p>
+        </div> -->
+
+        <section class="text-center bg-dark mt-5 position-relative overflow-hidden py-5">
+
+            <!-- Gambar latar belakang -->
+            <img src="/img/kapak.png" alt="Dark axe" class="bg-symbol">
+
+            <div class="container position-relative z-1">
+                <div class="display-6 text-danger mb-3">☠</div>
+                <p class="lead text-secondary">
+                    In a realm where art bleeds into darkness, every stroke and line becomes a whisper of rebellion.
+                </p>
+                <p class="text-secondary">
+                    Boots Artwork is not just a gallery — it is a sanctuary for those who find beauty in chaos,
+                    elegance in decay, and soul in distortion.
+                </p>
+                <p class="fst-italic text-danger">
+                    Walk through our collection... if you dare.
+                </p>
+                <div class="display-6 text-danger mt-3">☠</div>
+            </div>
+
+        </section>
+
         <div class="row mt-5">
+            <h1 class="display-5 fw-bold text-center mt-5"
+                style="font-family: 'UnifrakturCook', cursive; letter-spacing: 3px;">
+                ☠ COLLECTION OF THE DAMNED ☠
+            </h1>
+
             <?php foreach($boots_artwork as $artwork) : ?>
             <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                    <img src="/img_uploads/<?= $artwork['gambar']; ?>" class="card-img-top" alt="<?= $artwork['title']; ?>">
+                <div class="card h-100 bg-white text-light border border-danger border-opacity-25 shadow-lg"
+                    style="transition: transform 0.3s ease, filter 0.3s ease;">
+                    <a href="#"><img src="/img_uploads/<?= $artwork['gambar']; ?>" class="card-img-top"
+                        alt="<?= $artwork['title']; ?>" style="transition: 0.3s;"></a>
                     <div class="card-body">
-                        <h5 class="card-title"><?= $artwork['title']; ?></h5>
-                        <p class="card-text"><?= $artwork['deskripsi']; ?></p>
+                        <h5 class="card-title text-danger" style="font-family: 'Cinzel', serif;">
+                            <?= strtoupper($artwork['title']); ?>
+                        </h5>
+                        <p class="card-text text-secondary"><?= $artwork['deskripsi']; ?></p>
                     </div>
                 </div>
+
             </div>
             <?php endforeach; ?>
-            
+
         </div>
 
     </div>

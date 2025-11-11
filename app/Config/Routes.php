@@ -19,3 +19,4 @@ $routes->get('/admin_boots/delete/(:any)', 'Admin_boots::delete/$1');
 
 
 $routes->get('/boots_artwork', 'Boots_artwork::index');
+$routes->get('/boots_artwork/detail/(:any)', 'Boots_artwork::detail/$1');

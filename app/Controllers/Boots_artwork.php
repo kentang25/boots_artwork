@@ -20,6 +20,20 @@
 
             return view('boots_artwork/v_boots_artwork', $data);
         }
+
+        public function detail($id)
+        {
+            $data = [
+                'title'     => 'Detail Artwork',
+                'artwork'   => $this->ArtworkModel->getBootsArtwork($id)
+            ];
+
+            if(empty($data['artwork'])){
+                throw new \CodeIgniter\Exceptions\PageNotFoundException('Artwork dengan ID ' . $id . ' tidak ditemukan.');
+            }else{
+                return view('boots_artwork/v_boots_artwork_detail', $data);
+            }
+        }
     }
 
 ?>

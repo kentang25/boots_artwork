@@ -54,7 +54,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100 bg-white text-light border border-danger border-opacity-25 shadow-lg"
                     style="transition: transform 0.3s ease, filter 0.3s ease;">
-                    <a href="#"><img src="/img_uploads/<?= $artwork['gambar']; ?>" class="card-img-top"
+                    <a href="/boots_artwork/detail/<?= $artwork['id'] ?>"><img src="/img_uploads/<?= $artwork['gambar']; ?>" class="card-img-top"
                         alt="<?= $artwork['title']; ?>" style="transition: 0.3s;"></a>
                     <div class="card-body">
                         <h5 class="card-title text-danger" style="font-family: 'Cinzel', serif;">

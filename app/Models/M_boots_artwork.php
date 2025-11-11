@@ -7,7 +7,7 @@
     {
         protected $table = 'tb_artwork';
         protected $primaryKey = 'id';
-        protected $allowedFields = ['title', 'deskripsi', 'gambar'];
+        protected $allowedFields = ['title', 'deskripsi', 'gambar','id_kategori'];
 
         public function getBootsArtwork($id = false)
         {
@@ -17,6 +17,11 @@
                 return $this->where(['id' => $id])->first();
             }
         }
+
+        // public function getIdArtwork($id)
+        // {
+        //     return $this->where(['id' => $id[]])
+        // }
     }
 
 

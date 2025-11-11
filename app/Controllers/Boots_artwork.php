@@ -34,6 +34,41 @@
                 return view('boots_artwork/v_boots_artwork_detail', $data);
             }
         }
+
+
+        public function gallery()
+        {
+            $all = $this->ArtworkModel->getArtwork();
+
+            $kategori = [];
+            foreach($all as $art){
+                $kategori[$art['kategori']][] = [
+                    'title' => $art['title'],
+                    'gambar' => $art['gambar'],
+                    'deskripsi' => $art['deskripsi']
+                ];
+            }
+
+            $data = [
+                'title'     => 'Gallery Artwork',
+                'kategori'  => $kategori
+            ];
+
+            return view('boots_artwork/v_boots_artwork_gallery', $data);
+        }
+
+        public function list_kategory($kategori)
+        {
+            $art = $this->ArtworkModel->getKategori($kategori);
+
+            $data = [
+                'title'         => 'Kategori: ' . $kategori,
+                'boots_artwork' => $art,
+                'kategori'      => $kategori
+            ];
+
+            return view('boots_artwork/', $data);
+        }
     }
 
 ?>

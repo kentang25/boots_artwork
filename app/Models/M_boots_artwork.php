@@ -27,9 +27,9 @@
 
         public function getKategori($kategori)
         {
-            return $this->select('tb_artwork.*, tb_kategori.nama_kategori')
-                        ->join('tb_kategori', 'tb_artwork.id_kategori = tb_kategori.id')
-                        ->where('tb_kategori.nama_kategori', $kategori)
+            return $this->select('tb_artwork.*, tb_kategori.kategori')
+                        ->join('tb_kategori', 'tb_artwork.id_kategori = tb_kategori.id_kategori')
+                        ->where('tb_kategori.kategori', $kategori)
                         ->findAll();
         }
     }

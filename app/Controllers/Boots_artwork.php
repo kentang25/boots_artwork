@@ -67,7 +67,15 @@
                 'kategori'      => $kategori
             ];
 
-            return view('boots_artwork/', $data);
+            return view('boots_artwork/v_all_gallery', $data);
+        }
+
+        public function about()
+        {
+            $data = [
+                'title'     => 'About Boots Artwork'
+            ];
+            return view('boots_artwork/v_boots_artwork_about', $data);
         }
     }
 

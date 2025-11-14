@@ -11,7 +11,7 @@
     <div class="card mb-4 bg-dark text-white p-4 shadow-lg">
         <div class="row g-0">
             <div class="col-md-4 text-center">
-                <img src="/img_uploads/<?= $artwork['gambar'] ?>" class="img-fluid rounded shadow-lg" alt="Boots Artwork">
+                <img src="/img_uploads/<?= $artwork['gambar'] ?>" class="img-fluid bg-light rounded shadow-lg" loading="lazy" alt="Boots Artwork">
             </div>
             <div class="col-md-8">
                 <div class="card-body">

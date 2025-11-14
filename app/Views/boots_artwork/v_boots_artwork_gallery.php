@@ -21,8 +21,8 @@
                 <?php foreach($artwork as $art) : ?>
                 <div class="col-md-3 mb-4">
                     <div class="art-card">
-                        <img src="<?= base_url('img_uploads/' . $art['gambar']) ?>" class="art-img"
-                            alt="<?= $art['title'] ?>">
+                        <a href="/boots_artwork/detail/<?= $art['id'] ?>"><img src="<?= base_url('img_uploads/' . $art['gambar']) ?>" class="art-img"
+                            alt="<?= $art['title'] ?>" loading="lazy"></a>
                         <div class="art-overlay"></div>
                         <div class="art-content">
                             <h5 class="art-title"><?= $art['title'] ?></h5>

@@ -38,19 +38,15 @@
 
         public function gallery()
         {
-            $all = $this->ArtworkModel->getArtwork();
+            $result = $this->ArtworkModel->getArtwork();
 
-            $kategori = [];
-            foreach($all as $art){
-                $kategori[$art['kategori']][] = [
-                    'title' => $art['title'],
-                    'gambar' => $art['gambar'],
-                    'deskripsi' => $art['deskripsi']
-                ];
-            }
+            $kategori = [
+                'Art' => $result['art'],
+                'Border' => $result['border']
+            ];
 
             $data = [
-                'title'     => 'Gallery Artwork',
+                'title'     => "Gallery Boots Artwork",
                 'kategori'  => $kategori
             ];
 

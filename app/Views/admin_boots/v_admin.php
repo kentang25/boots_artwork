@@ -88,6 +88,14 @@
                                     </div>
 
                                     <div class="mb-3">
+                                        <label for="kategori" class="form-label">kategori</label>
+                                        <select class="form-control" name="kategori" id="kategori">
+                                            <?php foreach($kategori as $kat) : ?>
+                                                <option value="<?= $kat['id_kategori'] ?>"><?= $kat['kategori'] ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
                                         <label for="gambar" class="form-label">Gambar</label>
                                         <input type="file"
                                             class="form-control <?= $validation->hasError('gambar') ? 'is-invalid' : '' ?>"

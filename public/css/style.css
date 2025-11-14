@@ -56,11 +56,6 @@
       width: 100%;
     }
 
-    #gambar-jmb{
-      object-fit: cover;
-      height: 100vh;
-    }
-
     .card:hover 
     {
       transform: scale(1.05);
@@ -231,6 +226,11 @@
     font-size: 0.9rem;
     color: #ccc;
     font-style: italic;
+}
+
+a{
+  position: relative;
+  z-index: 100;
 }
 
 a#find-more {

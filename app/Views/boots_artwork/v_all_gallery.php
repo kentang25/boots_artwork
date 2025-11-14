@@ -11,7 +11,7 @@
                 <div class="col-md-3 mb-4">
                     <div class="art-card">
                         <img src="<?= base_url('img_uploads/' . $art['gambar']) ?>" class="art-img"
-                             alt="<?= $art['title'] ?>">
+                             alt="<?= $art['title'] ?>" loading="lazy">
                         <div class="art-overlay"></div>
                         <div class="art-content">
                             <h5 class="art-title"><?= $art['title'] ?></h5>

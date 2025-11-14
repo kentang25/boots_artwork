@@ -2,6 +2,7 @@
 
     namespace App\Controllers;
     Use App\Models\M_boots_artwork;
+    use App\Models\M_boots_artwork_kategori;
 
     Class admin_boots extends BaseController
     {
@@ -9,13 +10,15 @@
         public function __construct()
         {
             $this->ArtworkModel = new M_boots_artwork();
+            $this->KategoriModel = new M_boots_artwork_kategori();
         }
         public function index()
         {
             $data = [
                 'title' => 'Admin Boots Artwork',
                 'boots_artwork' => $this->ArtworkModel->getBootsArtwork(),
-                'validation' => session()->getFlashdata('validation') ?? \Config\Services::validation()
+                'validation' => session()->getFlashdata('validation') ?? \Config\Services::validation(),
+                'kategori' => $this->KategoriModel->findAll()
             ];
 
             return view('admin_boots/v_admin', $data);
@@ -38,9 +41,10 @@
             $fileGambar->move('img_uploads', $nameGambar);
 
             $this->ArtworkModel->save([
-                'title' => $this->request->getPost('title'),
+                'title'     => $this->request->getPost('title'),
                 'deskripsi' => $this->request->getPost('deskripsi'),
-                'gambar' => $nameGambar
+                'gambar'    => $nameGambar,
+                'id_kategori'  => $this->request->getPost('kategori')
             ]);
 
             return redirect()->to('/admin_boots');

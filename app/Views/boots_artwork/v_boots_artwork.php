@@ -6,16 +6,31 @@
         
     </div> -->
     <div class="container-fluid text-white mt-3 p-5 rounded-3">
-        <div class="row align-items-center bg-dark p-4 rounded-3">
-            <div class="col-md-6">
-                <h1 class="display-5 fw-bold">Welcome to the Boots Artwork Gallery</h1>
-                <p class="lead">Explore our collection of stunning boot designs and artwork.</p>
-                <a class="btn btn-danger btn-lg" href="/boots_artwork/about" role="button">Learn more</a>
-            </div>
-            <div class="col-md-6 text-center">
-                <img src="img/Proyek (20250902020139).png" alt="Boots Artwork" class="img-fluid" id="gambar-jmb">
-            </div>
-        </div>
+        <div class="row bg-dark p-4 rounded-3 d-flex flex-column-reverse flex-md-row align-items-center">
+
+    <!-- Kolom Gambar -->
+    <div class="col-12 col-md-6 text-center mb-4 mb-md-0">
+        <img src="img/Proyek (20251110104601).png"
+             alt="Boots Artwork"
+             class="img-fluid"
+             style="max-width: 100%; height: auto; object-fit: contain;">
+    </div>
+
+    <!-- Kolom Teks -->
+    <div class="col-12 col-md-6">
+        <h1 class="display-5 fw-bold text-white">
+            Welcome to the Boots Artwork Gallery
+        </h1>
+        <p class="lead text-light">
+            Explore our collection of stunning boot designs and artwork.
+        </p>
+        <a class="btn btn-danger btn-lg" href="/boots_artwork/about" role="button">
+            Learn more
+        </a>
+    </div>
+
+</div>
+
 
         <!-- <div class="content mt-5">
             <h1>Boots Artwork</h1>
@@ -25,7 +40,7 @@
         <section class="text-center bg-dark mt-5 position-relative overflow-hidden py-5">
 
             <!-- Gambar latar belakang -->
-            <img src="/img/kapak.png" alt="Dark axe" class="bg-symbol">
+            <img src="/img/kapak.png" alt="Dark axe" class="bg-symbol" loading="lazy">
 
             <div class="container position-relative z-1">
                 <div class="display-6 text-danger mb-3">☠</div>
@@ -54,7 +69,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100 bg-white text-light border border-danger border-opacity-25 shadow-lg"
                     style="transition: transform 0.3s ease, filter 0.3s ease;">
-                    <a href="/boots_artwork/detail/<?= $artwork['id'] ?>"><img src="/img_uploads/<?= $artwork['gambar']; ?>" class="card-img-top"
+                    <a href="/boots_artwork/detail/<?= $artwork['id'] ?>"><img src="/img_uploads/<?= $artwork['gambar']; ?>" loading="lazy" class="card-img-top"
                         alt="<?= $artwork['title']; ?>" style="transition: 0.3s;"></a>
                     <div class="card-body">
                         <h5 class="card-title text-danger" style="font-family: 'Cinzel', serif;">

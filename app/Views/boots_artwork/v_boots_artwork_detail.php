@@ -16,7 +16,7 @@
             <div class="col-md-8">
                 <div class="card-body">
                     <div class="card-title">
-                        <h2 class="fw-bold" style="font-family: 'Cinzel', serif;"><?= $artwork['title'] ?></h2>
+                        <h2 class="fw-bold text-danger" style="font-family: 'Cinzel', serif;"><?= $artwork['title'] ?></h2>
                     </div>
                     <p class="card-text mt-3" style="font-family: 'Cinzel', serif;"><?= $artwork['deskripsi'] ?></p>
                 </div>

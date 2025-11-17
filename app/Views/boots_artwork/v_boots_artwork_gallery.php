@@ -23,10 +23,10 @@
                     <div class="art-card">
                         <a href="/boots_artwork/detail/<?= $art['id'] ?>"><img src="<?= base_url('img_uploads/' . $art['gambar']) ?>" class="art-img"
                             alt="<?= $art['title'] ?>" loading="lazy"></a>
-                        <div class="art-overlay"></div>
+                        <!-- <div class="art-overlay"></div> -->
                         <div class="art-content">
-                            <h5 class="art-title"><?= $art['title'] ?></h5>
-                            <p class="art-desc"><?= $art['deskripsi'] ?></p>
+                            <h5 class="art-title fw-bold"><?= $art['title'] ?></h5>
+                            
                         </div>
                     </div>
                 </div>

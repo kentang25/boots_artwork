@@ -9,7 +9,9 @@ use CodeIgniter\Router\RouteCollection;
 $routes->setAutoRoute(true);
 $routes->setDefaultController('/boots_artwork');
 
-$routes->post('/admin_login/login', 'Admin_login::login');
+$routes->get('/boots_login', 'Boots_login::index');
+$routes->post('/boots_login/login', 'Boots_login::login');
+
 
 $routes->get('/admin_boots', 'Admin_boots::index');
 $routes->post('/admin_boots/save', 'Admin_boots::save');

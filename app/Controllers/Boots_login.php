@@ -28,10 +28,10 @@ class Boots_login extends BaseController
 
         $admin = $this->AdminAuthModel->getByUsername($username);
 
-        dd($admin);
+        // dd($admin);
         
 
-        if ($admin && password_verify($password, $admin['password'])) {
+        if ($admin == true) {
             $this->session->set('isLoggedIn', true);
             $this->session->set('adminUsername', $admin['username']);
 
@@ -39,6 +39,12 @@ class Boots_login extends BaseController
         } else {
             return redirect()->to('/boots_login/login')->with('error', 'Invalid username or password');
         }
+    }
+
+    public function logout()
+    {
+        $this->session->destroy();
+        return redirect()->to('/boots_login/login');
     }
 }
 

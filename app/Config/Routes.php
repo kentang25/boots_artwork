@@ -6,20 +6,22 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-$routes->setAutoRoute(true);
+$routes->setAutoRoute(false);
 $routes->setDefaultController('/boots_artwork');
 
-$routes->get('/boots_login', 'Boots_login::index');
+// $routes->get('/boots_login', 'Boots_login::index');
+$routes->get('/boots_login/login', 'Boots_login::index');
 $routes->post('/boots_login/login', 'Boots_login::login');
+$routes->get('boots_login/logout', 'Boots_login::logout');
 
 
-$routes->get('/admin_boots', 'Admin_boots::index');
-$routes->post('/admin_boots/save', 'Admin_boots::save');
 
-$routes->get('/admin_boots/edit/(:any)', 'Admin_boots::edit/$1');
-$routes->post('/admin_boots/update/(:any)', 'Admin_boots::update/$1');
+$routes->get('/admin_boots', 'Admin_boots::index', ['filter' => 'AuthCheck']);
+$routes->post('/admin_boots/save', 'Admin_boots::save', ['filter' => 'AuthCheck']);
 
-$routes->get('/admin_boots/delete/(:any)', 'Admin_boots::delete/$1');
+$routes->get('/admin_boots/edit/(:any)', 'Admin_boots::edit/$1', ['filter' => 'AuthCheck']);
+$routes->post('/admin_boots/update/(:any)', 'Admin_boots::update/$1', ['filter' => 'AuthCheck']);
+$routes->get('/admin_boots/delete/(:any)', 'Admin_boots::delete/$1', ['filter' => 'AuthCheck']);
 
 
 $routes->get('/boots_artwork', 'Boots_artwork::index');

@@ -49,6 +49,8 @@
                         </div>
                     </li>
 
+                    <li class="mr-5"><a href="<?= base_url('boots_login/logout') ?>" class="btn btn-sm btn-danger">Logout</a></li>
+
              </ul>
 
          </nav>

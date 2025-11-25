@@ -27,9 +27,10 @@
 
                     <tbody>
                         <?php if(!empty($boots_artwork)) : ?>
-                            <?php $no = 1; foreach($boots_artwork as $artwork) : ?>
+                            <?php $no = 1 + (5 * ($currentPage - 1)) ?>
+                            <?php  foreach($boots_artwork as $artwork) : ?>
                                 <tr>
-                                    <td><?= $no++ ?></td>
+                                    <td scope="row"><?= $no++ ?></td>
                                     <td class="text-start"><?= $artwork['title'] ?></td>
                                     <td class="text-start"><?= substr($artwork['deskripsi'], 0, 100) ?>...</td>
                                     <td>
@@ -54,6 +55,7 @@
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
+                            
                         <?php else : ?>
                             <tr>
                                 <td colspan="5">No data available</td>
@@ -61,6 +63,7 @@
                         <?php endif; ?>
                     </tbody>
                 </table>
+                <?= $pager->links('tb_artwork', 'default_full') ?>
             </div>
 
         </div>

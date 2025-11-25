@@ -1,58 +1,56 @@
- <!-- Content Wrapper -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm py-2 px-3">
 
+    <!-- Left: Sidebar Toggle (Mobile Only) -->
+    <button id="sidebarToggleTop" class="btn btn-light d-lg-none me-2">
+        <i class="fa fa-bars"></i>
+    </button>
 
-         <!-- Topbar -->
-         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+    <!-- Center: Search (Desktop Only) -->
+    <form class="d-none d-md-flex flex-grow-1 me-3">
+        <div class="input-group input-group-sm">
+            <input 
+                type="text" 
+                class="form-control bg-light border-0 shadow-none" 
+                placeholder="Search..."
+            >
+            <button class="btn btn-primary">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </form>
 
-             <!-- Sidebar Toggle (Topbar) -->
-             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                 <i class="fa fa-bars"></i>
-             </button>
+    <!-- Right: Navbar Items -->
+    <ul class="navbar-nav ms-auto align-items-center">
 
-             <!-- Topbar Search -->
-             <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                 <div class="input-group">
-                     <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                         aria-label="Search" aria-describedby="basic-addon2">
-                     <div class="input-group-append">
-                         <button class="btn btn-primary" type="button">
-                             <i class="fas fa-search fa-sm"></i>
-                         </button>
-                     </div>
-                 </div>
-             </form>
+        <!-- Search (Mobile only) -->
+        <li class="nav-item d-md-none">
+            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#mobileSearch">
+                <i class="fas fa-search"></i>
+            </a>
+        </li>
 
-             <!-- Topbar Navbar -->
-                <ul class="navbar-nav ml-auto">
-    
-                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                    <li class="nav-item dropdown no-arrow d-sm-none">
-                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <!-- Dropdown - Messages -->
-                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                            aria-labelledby="searchDropdown">
-                            <form class="form-inline mr-auto w-100 navbar-search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small"
-                                        placeholder="Search for..." aria-label="Search"
-                                        aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fas fa-search fa-sm"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </li>
+        <!-- Logout -->
+        <li class="nav-item ms-2">
+            <a href="<?= base_url('boots_login/logout') ?>" class="btn btn-danger btn-sm px-3">
+                Logout
+            </a>
+        </li>
+    </ul>
 
-                    <li class="mr-5"><a href="<?= base_url('boots_login/logout') ?>" class="btn btn-sm btn-danger">Logout</a></li>
+</nav>
 
-             </ul>
-
-         </nav>
-     
-     <!-- End of Topbar -->
+<!-- Mobile Search (Hidden on Desktop) -->
+<div class="collapse" id="mobileSearch">
+    <div class="p-3 bg-white shadow-sm">
+        <div class="input-group input-group-sm">
+            <input 
+                type="text" 
+                class="form-control bg-light border-0 shadow-none" 
+                placeholder="Search..."
+            >
+            <button class="btn btn-primary">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+</div>

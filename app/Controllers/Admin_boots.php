@@ -14,14 +14,26 @@
         }
         public function index()
         {
-            $data = [
-                'title' => 'Admin Boots Artwork',
-                'boots_artwork' => $this->ArtworkModel->getBootsArtwork(),
-                'validation' => session()->getFlashdata('validation') ?? \Config\Services::validation(),
-                'kategori' => $this->KategoriModel->findAll()
+
+            $currentPage = $this->request->getVar('page_tb_artwork') ? $this->request->getVar('page_tb_artwork') : 1;
+            
+            $keyword = $this->request->getVar('keyword');
+            if($keyword){
+                $data_pagi = $this->ArtworkModel->search($keyword);
+            }else{
+                $data_pagi = $this->ArtworkModel;
+            }
+
+            $data_pagi = [
+                'title'         => 'Admin Boots Artwork',
+                'boots_artwork' => $data_pagi->paginate(5, 'tb_artwork'),
+                'currentPage'   => $currentPage,
+                'pager'         => $this->ArtworkModel->pager,
+                'validation'    => session()->getFlashdata('validation') ?? \Config\Services::validation(),
+                'kategori'      => $this->KategoriModel->findAll()
             ];
 
-            return view('admin_boots/v_admin', $data);
+            return view('admin_boots/v_admin', $data_pagi);
         }
 
         public function save()

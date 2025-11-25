@@ -18,15 +18,6 @@
             }
         }
 
-        // public function getArtwork()
-        // {
-        //     return $this->select('tb_artwork.*, tb_kategori.kategori')
-        //                 ->join('tb_kategori', 'tb_kategori.id_kategori = tb_artwork.id_kategori')
-        //                 // ->where('tb_artwork.id_kategori', 4)
-        //                 // ->limit(4)
-        //                 ->findAll();
-        // }
-
         public function getArtwork()
         {
             $artwork = $this->select('tb_artwork.*, tb_kategori.kategori')
@@ -54,7 +45,15 @@
                         ->where('tb_kategori.kategori', $kategori)
                         ->findAll();
         }
+
+        public function search($keyword)
+        {
+            return $this->table('tb_artwork')->like('title', $keyword)->orLike('deskripsi',$keyword);
+        }
+    
     }
+
+    
 
 
 
